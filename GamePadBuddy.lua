@@ -665,12 +665,20 @@ end
 local function commandExec()
 end
 
-ZO_GamepadSkillLineXpBar_Setup = function(skillType, skillLineIndex, xpBar, nameControl, forceInit)
-    local name, lineRank = GetSkillLineInfo(skillType, skillLineIndex)
-    local lastXP, nextXP, currentXP = GetSkillLineXPInfo(skillType, skillLineIndex)    
-    ZO_SkillInfoXPBar_SetValue(xpBar, lineRank, lastXP, nextXP, currentXP, forceInit)
+function ZO_GamepadSkillLineXpBar_Setup(skillLineData, xpBar, nameControl, noWrap)
+    local formattedName = skillLineData:GetFormattedName()
+    local advised = skillLineData:IsAdvised()
+    local lastXP, nextXP, currentXP = skillLineData:GetRankXPValues() 
+    if advised then
+        local RANK_NOT_SHOWN = 1
+        local CURRENT_XP_NOT_SHOWN = 0
+        ZO_SkillInfoXPBar_SetValue(xpBar, RANK_NOT_SHOWN, lastXP, nextXP, CURRENT_XP_NOT_SHOWN, noWrap)
+    else
+        local skillLineRank = skillLineData:GetCurrentRank()
+        ZO_SkillInfoXPBar_SetValue(xpBar, skillLineRank, lastXP, nextXP, currentXP, noWrap)
+    end
     if nameControl then
-        nameControl:SetText(zo_strformat(SI_SKILLS_ENTRY_LINE_NAME_FORMAT, name))
+        nameControl:SetText(formattedName)
     end
 end
 
