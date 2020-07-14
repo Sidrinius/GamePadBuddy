@@ -164,13 +164,13 @@ function OnOpenStore()
 end
 
 function HookDestructionList() 
-	local testfunction = _G.ZO_SharedSmithingExtraction_IsExtractableItem
-	_G.ZO_SharedSmithingExtraction_IsExtractableItem = function (itemData) 
+	local testfunction = _G.ZO_SharedSmithingExtraction_IsExtractableOrRefinableItem
+	_G.ZO_SharedSmithingExtraction_IsExtractableOrRefinableItem = function (bagId, slotIndex) 
 		if GamePadBuddy.curSavedVars.hideresearchables then
-			local isResearchItem = GamePadBuddy:GetItemFlagStatus(itemData.bagId, itemData.slotIndex) == GamePadBuddy.CONST.ItemFlags.ITEM_FLAG_TRAIT_RESEARABLE
-			return testfunction(itemData) and not isResearchItem
+			local isResearchItem = GamePadBuddy:GetItemFlagStatus(bagId, slotIndex) == GamePadBuddy.CONST.ItemFlags.ITEM_FLAG_TRAIT_RESEARABLE
+			return testfunction(bagId, slotIndex) and not isResearchItem
 		else
-			return testfunction(itemData)
+			return testfunction(bagId, slotIndex)
 		end
 	end
 end
