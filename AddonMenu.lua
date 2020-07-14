@@ -1,5 +1,5 @@
 local _
-local LAM = LibStub:GetLibrary("LibAddonMenu-2.0")
+local LAM2 = LibAddonMenu2
 
 GamePadBuddy.AddonMenu = {}
 local changed = false
@@ -8,9 +8,9 @@ function GamePadBuddy.AddonMenu.Init()
 	local panelData =  {
 		type = "panel",
 		name = "GamePadBuddy",
-		displayName = "RockingDice's GamePadBuddy",
+		displayName = "GamePadBuddy",
 		author = "RockingDice",
-		version = "1.00",
+		version = "1.07",
 		slashCommand = "/gb",
 		registerForRefresh = true,
 		registerForDefaults = false
@@ -151,6 +151,6 @@ function GamePadBuddy.AddonMenu.Init()
 			end,
 		},      
 	}
-	LAM:RegisterAddonPanel("GAMEPADBUDDY_SETTINGS", panelData)
-	LAM:RegisterOptionControls("GAMEPADBUDDY_SETTINGS", optionsTable)
+	LAM2:RegisterAddonPanel("GAMEPADBUDDY_SETTINGS", panelData)
+	LAM2:RegisterOptionControls("GAMEPADBUDDY_SETTINGS", optionsTable)
 end

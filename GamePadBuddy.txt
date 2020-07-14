@@ -1,26 +1,11 @@
-## Title: RockingDice's GamePadBuddy
-## APIVersion: 100021
+## Title: GamePadBuddy
+## APIVersion: 100031 100032
 ## Author: RockingDice
 ## Description: Type "/gb" 
-## Version: 1.06
+## Version: 1.07
 ## SavedVariables: GamePadBuddySavedVars
-## OptionalDependsOn: LibAddonMenu-2.0 ItemBrowser
-
-Libs/LibStub/LibStub.lua
-Libs/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
-Libs/LibAddonMenu-2.0/controls/panel.lua
-Libs/LibAddonMenu-2.0/controls/submenu.lua
-Libs/LibAddonMenu-2.0/controls/button.lua
-Libs/LibAddonMenu-2.0/controls/checkbox.lua
-Libs/LibAddonMenu-2.0/controls/colorpicker.lua
-Libs/LibAddonMenu-2.0/controls/custom.lua
-Libs/LibAddonMenu-2.0/controls/description.lua
-Libs/LibAddonMenu-2.0/controls/dropdown.lua
-Libs/LibAddonMenu-2.0/controls/editbox.lua
-Libs/LibAddonMenu-2.0/controls/header.lua
-Libs/LibAddonMenu-2.0/controls/slider.lua
-Libs/LibAddonMenu-2.0/controls/texture.lua
-Libs/LibAddonMenu-2.0/controls/iconpicker.lua
+## DependsOn: LibAddonMenu-2.0
+## OptionalDependsOn: ItemBrowser
 
 Helper.lua
 GamePadBuddy.lua
