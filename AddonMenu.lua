@@ -10,7 +10,7 @@ function GamePadBuddy.AddonMenu.Init()
 		name = "GamePadBuddy",
 		displayName = "GamePadBuddy",
 		author = "RockingDice",
-		version = "1.07",
+		version = "1.08",
 		slashCommand = "/gb",
 		registerForRefresh = true,
 		registerForDefaults = false

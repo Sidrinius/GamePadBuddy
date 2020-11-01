@@ -1,8 +1,8 @@
 ## Title: GamePadBuddy
-## APIVersion: 100031 100032
+## APIVersion: 100032 100033
 ## Author: RockingDice
 ## Description: Type "/gb" 
-## Version: 1.07
+## Version: 1.08
 ## SavedVariables: GamePadBuddySavedVars
 ## DependsOn: LibAddonMenu-2.0
 ## OptionalDependsOn: ItemBrowser

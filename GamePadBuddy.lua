@@ -12,7 +12,7 @@ GamePadBuddyData = {};
 --define name of addon
 GamePadBuddyData.name = "GamePadBuddy";
 --define addon version number
-GamePadBuddyData.version = 1.07;
+GamePadBuddyData.version = 1.08;
 -- Value Define
 TCC_QUEST_GAMES_DOLLS_STATUES = 1
 TCC_QUEST_RITUAL_ODDITIES = 2
