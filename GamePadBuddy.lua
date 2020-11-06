@@ -472,7 +472,9 @@ local function AddInventoryPreInfo(tooltip, bagId, slotIndex)
 
     if GamePadBuddy.curSavedVars.ttc and TamrielTradeCentre ~= nil then
 		tooltip:AddLine(zo_strformat("|cf23d8eTTC:|r"))
-        local priceInfo = TamrielTradeCentrePrice:GetPriceInfo(itemLink)
+        -- local priceInfo = TamrielTradeCentrePrice:GetPriceInfo(itemLink)
+		local itemInfo = TamrielTradeCentre_ItemInfo:New(itemLink)
+		local priceInfo = TamrielTradeCentrePrice:GetPriceInfo(itemInfo)
     
         if (priceInfo == nil) then
 			tooltip:AddLine(zo_strformat("|cf23d8e<<1>>|r", GetString(TTC_PRICE_NOLISTINGDATA)))
