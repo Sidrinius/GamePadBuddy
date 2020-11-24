@@ -1,15 +1,10 @@
 ## Title: GamePadBuddy
-## APIVersion: 100032 100033
-## Author: RockingDice
+## APIVersion: 100033
+## Author: Sidrinius, RockingDice
 ## Description: Type "/gb" 
 ## Version: 1.08
 ## SavedVariables: GamePadBuddySavedVars
 ## DependsOn: LibAddonMenu-2.0
-## OptionalDependsOn: ItemBrowser
 
-Helper.lua
 GamePadBuddy.lua
 AddonMenu.lua
-ui/entryicon.xml 
-ui/entryicon.lua
-ui/fastteleport.lua
