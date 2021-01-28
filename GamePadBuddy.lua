@@ -35,7 +35,6 @@ local function AddInventoryPreInfo(tooltip, bagId, slotIndex)
 
     if GamePadBuddy.curSavedVars.ttc and TamrielTradeCentre ~= nil then
 		tooltip:AddLine(zo_strformat("|cf23d8eTTC:|r"))
-        -- local priceInfo = TamrielTradeCentrePrice:GetPriceInfo(itemLink)
 		local itemInfo = TamrielTradeCentre_ItemInfo:New(itemLink)
 		local priceInfo = TamrielTradeCentrePrice:GetPriceInfo(itemInfo)
     
@@ -62,7 +61,7 @@ local function AddInventoryPreInfo(tooltip, bagId, slotIndex)
           end
         end
  
- 
+		--[[
         if GamePadBuddy.curSavedVars.recipes and itemType == ITEMTYPE_RECIPE then
 		
 			local resultItemLink = GetItemLinkRecipeResultItemLink(itemLink)
@@ -92,22 +91,25 @@ local function AddInventoryPreInfo(tooltip, bagId, slotIndex)
 			end
 	 
 		end
+		]]--
     end 
 	
 	if GamePadBuddy.curSavedVars.mm and MasterMerchant ~= nil then 
+		--tooltip:AddLine(zo_strformat("|r"))
 		tooltip:AddLine(zo_strformat("|c7171d1MM:|r"))
 		local tipLine, avePrice, graphInfo = MasterMerchant:itemPriceTip(itemLink, false, false)
 		if(tipLine ~= nil) then
 			tooltip:AddLine(zo_strformat("|c7171d1<<1>>|r", tipLine))
 		else
-			tooltip:AddLine(zo_strformat("|c7171d1MM price (0 sales, 0 days): UNKNOWN|r"))
+			tooltip:AddLine(zo_strformat("|c7171d1No listing data|r"))
 		end
 
 		local craftInfo = MasterMerchant:itemCraftPriceTip(itemLink)
 		if craftInfo ~= nil then
 			tooltip:AddLine(zo_strformat("|c7171d1<<1>>|r", craftInfo)) 
-		end	
-		
+		end
+				
+		--[[
         if GamePadBuddy.curSavedVars.recipes and itemType == ITEMTYPE_RECIPE then
 			local resultItemLink = GetItemLinkRecipeResultItemLink(itemLink)
 			
@@ -118,17 +120,24 @@ local function AddInventoryPreInfo(tooltip, bagId, slotIndex)
 				tooltip:AddLine(zo_strformat("|c7171d1Product MM price (0 sales, 0 days): UNKNOWN|r")) 
 			end
 		end
+		]]--
 	end
 
-  --[[
-  if GamePadBuddy.curSavedVars.att and ArkadiusTradeTools then 
-      local priceLine, statusLine = GetATTPriceAndStatus(itemLink)
-      tooltip:AddLine(zo_strformat("|cf58585ATT:|r"))
-      tooltip:AddLine(zo_strformat("|cf58585<<1>>|r", priceLine))
-      tooltip:AddLine(zo_strformat("|cf58585<<1>>|r", statusLine))
-  end
-  ]]--
+	if GamePadBuddy.curSavedVars.att and ArkadiusTradeTools ~= nil then
+		--tooltip:AddLine(zo_strformat("|r"))
+		tooltip:AddLine(zo_strformat("|cf58585ATT:|r"))
+		tooltip:AddLine(zo_strformat("|cf58585No listing data|r"))
+		--tooltip:AddLine(zo_strformat("|r"))
+	end
 
+	--[[
+	if GamePadBuddy.curSavedVars.att and ArkadiusTradeTools then 
+		local priceLine, statusLine = GetATTPriceAndStatus(itemLink)
+		tooltip:AddLine(zo_strformat("|cf58585ATT:|r"))
+		tooltip:AddLine(zo_strformat("|cf58585<<1>>|r", priceLine))
+		tooltip:AddLine(zo_strformat("|cf58585<<1>>|r", statusLine))
+	end
+	]]--
 end
 
 function InventoryHook(tooltip, method)
